@@ -1,0 +1,19 @@
+# Programme learning outcomes (opleidingsleerresultaten / OLR).
+# PLACEHOLDER programme — replace with a real programme's OLR from the target institution.
+# Course learning outcomes (Stage 1) must each trace to at least one code below (QG-06).
+status: placeholder
+
+programme: Example Bachelor Programme
+level: bachelor # graduaat | bachelor | master
+
+outcomes:
+  - code: OLR1
+    text: Applies core disciplinary concepts and methods to solve well-defined problems in the field.
+  - code: OLR2
+    text: Analyses problems by selecting and structuring relevant information from multiple sources.
+  - code: OLR3
+    text: Communicates findings clearly in writing and speech to specialist and non-specialist audiences.
+  - code: OLR4
+    text: Evaluates the quality and limitations of solutions against professional and ethical criteria.
+  - code: OLR5
+    text: Works effectively and reflectively both independently and within a team.
