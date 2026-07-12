@@ -1,0 +1,56 @@
+# Example fiche-session — a deliberately weak OPO. Should FAIL several quality-gate checks.
+# Each defect is annotated with the check it is designed to trip. Used as a test fixture.
+language: en
+programme: Example Bachelor Programme
+level: bachelor
+ects: 3
+
+olr:
+  - code: OLR1
+    text: Applies core disciplinary concepts and methods to solve well-defined problems.
+  - code: OLR2
+    text: Analyses problems by selecting and structuring relevant information.
+
+learningOutcomes:
+  - id: LO1
+    text: Understands the main theories of the field. # QG-03: "understand" is a banned verb
+    verb: understand
+    olrRefs: [OLR1]
+  - id: LO2
+    text: Applies a method to a task.
+    verb: apply
+    olrRefs: [] # QG-06: no OLR trace
+  - id: LO3
+    text: Analyses a dataset. # QG-01: this LO has no assessment coverage below
+    verb: analyse
+    olrRefs: [OLR2]
+
+assessments:
+  - id: A1
+    title: Written exam
+    form: written-exam
+    weight: 50
+  - id: A2
+    title: Group presentation
+    form: presentation # QG-05: "presentation" is not a permitted OER form
+    weight: 40 # QG-05: weights sum to 90, not 100
+
+# QG-01: LO3 not covered. QG-02: A2 appears in no entry (orphan assessment).
+toetsmatrijs:
+  - lo: LO1
+    components: [A1]
+  - lo: LO2
+    components: [A1]
+  - lo: LO3
+    components: []
+
+# QG-04: 3 ECTS → band 75–90 hours. Total 50 is below band.
+studyLoad:
+  breakdown:
+    - activity: Lectures
+      type: contact
+      hours: 20
+    - activity: Self-study
+      type: independent
+      hours: 30
+  total: 50

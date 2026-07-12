@@ -1,0 +1,76 @@
+# Example fiche-session — a well-aligned OPO. Should PASS all six quality-gate checks.
+# Used as a test fixture for the validator (test/quality-gate.test.ts).
+language: en
+programme: Example Bachelor Programme
+level: bachelor
+ects: 5
+
+# The programme LOs this OPO aligns upward to (loaded at Intake from the programme OLR).
+olr:
+  - code: OLR1
+    text: Applies core disciplinary concepts and methods to solve well-defined problems.
+  - code: OLR2
+    text: Analyses problems by selecting and structuring relevant information.
+  - code: OLR3
+    text: Communicates findings clearly to specialist and non-specialist audiences.
+  - code: OLR4
+    text: Evaluates the quality and limitations of solutions against professional criteria.
+
+learningOutcomes:
+  - id: LO1
+    text: Applies the core methods of the field to solve a well-defined case problem.
+    verb: apply
+    olrRefs: [OLR1]
+  - id: LO2
+    text: Analyses a case by selecting and structuring relevant sources.
+    verb: analyse
+    olrRefs: [OLR2]
+  - id: LO3
+    text: Argues a recommendation clearly in a written report.
+    verb: argue
+    olrRefs: [OLR3]
+  - id: LO4
+    text: Evaluates a proposed solution against professional quality criteria.
+    verb: evaluate
+    olrRefs: [OLR4]
+
+assessments:
+  - id: A1
+    title: Written exam
+    form: written-exam
+    weight: 60
+  - id: A2
+    title: Case project with report
+    form: project
+    weight: 40
+
+# LO × assessment coverage. Every LO covered; every assessment used.
+toetsmatrijs:
+  - lo: LO1
+    components: [A1]
+  - lo: LO2
+    components: [A1, A2]
+  - lo: LO3
+    components: [A2]
+  - lo: LO4
+    components: [A1]
+
+# 5 ECTS → band 125–150 study hours. Total 137 is within band.
+studyLoad:
+  breakdown:
+    - activity: Lectures
+      type: contact
+      hours: 24
+    - activity: Practica
+      type: contact
+      hours: 12
+    - activity: Reading and preparation
+      type: independent
+      hours: 40
+    - activity: Case project work
+      type: independent
+      hours: 35
+    - activity: Exam preparation
+      type: independent
+      hours: 26
+  total: 137
