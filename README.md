@@ -33,8 +33,24 @@ scripts you'll use most:
 | Script                  | Does                                                         |
 | ----------------------- | ------------------------------------------------------------ |
 | `npm run build:project` | Assemble `project/project-instructions.md` from `knowledge/` |
+| `npm run sync:olr`      | Fetch a programme's OLRs + OPO index from the Odisee API     |
 | `npm run check`         | Lint, typecheck, and run the tests                           |
 | `npm run format`        | Auto-format (Biome for TS/JSON, Prettier for MD/YAML)        |
+
+### Syncing a programme's learning outcomes
+
+The programme OLRs and OPO list come from the public Odisee ECTS API. Sync one programme
+(by code, name, or id) for an academic year:
+
+```bash
+npm run sync:olr -- --programme O-SC-HPBGRD          # latest year
+npm run sync:olr -- --programme "Graduaat in het programmeren" --year 2026
+```
+
+This writes `knowledge/programmes/<year>/<code>/olr.yaml` (bilingual OLRs) and
+`programme.yaml` (the OPO index, so the coach can find a course by `opoCode` or name). To
+remember which courses you teach year-over-year, copy `profiles/example.profile.yaml` to
+`profiles/<you>.profile.yaml` (git-ignored) and add it to your Claude Project.
 
 ## How do I use it?
 

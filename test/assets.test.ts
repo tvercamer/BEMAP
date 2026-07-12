@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { ficheSessionSchema } from '../schemas/fiche-session.schema';
 import { ficheTemplateSchema, findField } from '../schemas/fiche-template.schema';
 import { programmeOlrSchema } from '../schemas/olr.schema';
+import { programmeIndexFileSchema, programmeOlrFileSchema } from '../schemas/programme-sync.schema';
 import { loadOerConfig, loadQualityGate } from '../src/quality-gate/rules';
 import { readYaml } from './helpers';
 
@@ -42,5 +43,11 @@ describe('knowledge assets are schema-valid', () => {
     const oer = loadOerConfig();
     const vorm = findField(template, 'evaluatie_vorm');
     expect(vorm?.options).toEqual(oer.permitted_forms);
+  });
+
+  it('the synced pilot programme (O-SC-HPBGRD) conforms to the sync schemas', () => {
+    const base = 'knowledge/programmes/2026/O-SC-HPBGRD';
+    expect(() => programmeOlrFileSchema.parse(readYaml(`${base}/olr.yaml`))).not.toThrow();
+    expect(() => programmeIndexFileSchema.parse(readYaml(`${base}/programme.yaml`))).not.toThrow();
   });
 });

@@ -1,0 +1,146 @@
+[
+  {
+    "id": 22009,
+    "volgnummer": 1,
+    "vertalingen": [
+      {
+        "taal": "E",
+        "tekst": "",
+        "beschrijving": null
+      },
+      {
+        "taal": "N",
+        "tekst": "De realisatie van een softwareproject met beperktere complexiteit voorbereiden, rekening houdend met de projectdoelstellingen.",
+        "beschrijving": ""
+      }
+    ],
+    "leeruitkomsten": [
+      {
+        "id": 116973,
+        "nummer": 1,
+        "vertalingen": [
+          {
+            "taal": "E",
+            "tekst": "",
+            "beschrijving": null
+          },
+          {
+            "taal": "N",
+            "tekst": "De student modelleert een probleemstelling met behulp van flowcharts als voorbereiding op de implementatie.\n",
+            "beschrijving": null
+          }
+        ],
+        "leerresultaatId": 22009,
+        "opoKoppelingen": null
+      },
+      {
+        "id": 116974,
+        "nummer": 2,
+        "vertalingen": [
+          {
+            "taal": "E",
+            "tekst": "",
+            "beschrijving": null
+          },
+          {
+            "taal": "N",
+            "tekst": "De student bereidt in team een gesimuleerd softwareproject voor door requirements op te stellen, prototypes te maken en projectdoelstellingen te definiëren.\n",
+            "beschrijving": null
+          }
+        ],
+        "leerresultaatId": 22009,
+        "opoKoppelingen": null
+      },
+      {
+        "id": 116975,
+        "nummer": 3,
+        "vertalingen": [
+          {
+            "taal": "E",
+            "tekst": "",
+            "beschrijving": null
+          },
+          {
+            "taal": "N",
+            "tekst": "De student bereidt de realisatie van een softwareproject voor, rekening houdend met projectdoelstellingen en de organisatiecontext.\n",
+            "beschrijving": null
+          }
+        ],
+        "leerresultaatId": 22009,
+        "opoKoppelingen": null
+      }
+    ]
+  },
+  {
+    "id": 22008,
+    "volgnummer": 2,
+    "vertalingen": [
+      {
+        "taal": "E",
+        "tekst": "",
+        "beschrijving": null
+      },
+      {
+        "taal": "N",
+        "tekst": "Een plan van aanpak opmaken op basis van de analyse, het projectplan, de vooropgestelde methodiek en doelstellingen tijdens de uitvoering van het project. Het afstemmen van de voorgestelde aanpak met de software-architect of de analist.",
+        "beschrijving": ""
+      }
+    ],
+    "leeruitkomsten": [
+      {
+        "id": 116977,
+        "nummer": 1,
+        "vertalingen": [
+          {
+            "taal": "E",
+            "tekst": "",
+            "beschrijving": null
+          },
+          {
+            "taal": "N",
+            "tekst": "De student analyseert functionele vereisten (requirements, use cases, wireframes) en vertaalt deze naar een plan van aanpak voor de implementatie.\n",
+            "beschrijving": null
+          }
+        ],
+        "leerresultaatId": 22008,
+        "opoKoppelingen": null
+      },
+      {
+        "id": 116976,
+        "nummer": 2,
+        "vertalingen": [
+          {
+            "taal": "E",
+            "tekst": "",
+            "beschrijving": null
+          },
+          {
+            "taal": "N",
+            "tekst": "De student stelt een plan van aanpak op en stemt de werkwijze af met het team, van behoeftebevraging tot deployment.\n",
+            "beschrijving": null
+          }
+        ],
+        "leerresultaatId": 22008,
+        "opoKoppelingen": null
+      },
+      {
+        "id": 116978,
+        "nummer": 3,
+        "vertalingen": [
+          {
+            "taal": "E",
+            "tekst": "",
+            "beschrijving": null
+          },
+          {
+            "taal": "N",
+            "tekst": "De student stelt een plan van aanpak op en stemt de aanpak af met de software-architect, analist of projectleider.\n",
+            "beschrijving": null
+          }
+        ],
+        "leerresultaatId": 22008,
+        "opoKoppelingen": null
+      }
+    ]
+  }
+]

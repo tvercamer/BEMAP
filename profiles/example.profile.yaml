@@ -1,0 +1,10 @@
+# Interim professor profile (chat-MVP). Copy to profiles/<yourname>.profile.yaml (gitignored)
+# and, in a Claude Project, add it as knowledge so the coach can offer your known OPOs and
+# carry them year-over-year. Real per-user persistence is a web-app feature (accounts + DB).
+professor: Example Professor
+academiejaar: 2026
+programme: O-SC-HPBGRD # Odisee programme code (see knowledge/programmes/<year>/<code>/)
+opos:
+  # OPO codes this professor teaches — match knowledge/programmes/.../programme.yaml
+  - ORP44A # Basic web development
+  - ORP42A # Introductie in programmeren

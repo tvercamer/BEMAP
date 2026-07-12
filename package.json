@@ -14,6 +14,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "build:project": "tsx scripts/build-project-instructions.ts",
+    "sync:olr": "tsx scripts/sync-olr.ts",
     "check": "npm run lint && npm run typecheck && npm run test",
     "prepare": "husky"
   },

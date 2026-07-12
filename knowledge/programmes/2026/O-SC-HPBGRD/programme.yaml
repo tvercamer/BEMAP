@@ -1,0 +1,93 @@
+institution: Odisee
+academiejaar: 2026
+programme:
+  id: 542
+  code: O-SC-HPBGRD
+  naam: Graduaat in het programmeren - in dagonderwijs (Brussel)
+source: https://ects-invoer.odisee.be/LeeruitkomstOpo/opo?opleidingId=542&academiejaar=2026
+fetched_at: 2026-07-12T10:11:09.973Z
+opos:
+  - opoCode: ORP09A
+    naam: "Werkplekleren A: IT-context"
+    id: 18364
+    fase: "001"
+  - opoCode: ORP11A
+    naam: Mobile Development
+    id: 18368
+    fase: "002"
+  - opoCode: ORP13A
+    naam: "Werkplekleren B: IT-project"
+    id: 18372
+    fase: "002"
+  - opoCode: ORP14A
+    naam: Portfolio
+    id: 18375
+    fase: "002"
+  - opoCode: ORP15A
+    naam: Starten als professional
+    id: 18380
+    fase: "002"
+  - opoCode: ORP35A
+    naam: "Werkplekleren A: IT-context"
+    id: 19712
+    fase: "001"
+  - opoCode: ORP36A
+    naam: "Werkplekleren B: IT-project"
+    id: 19761
+    fase: "002"
+  - opoCode: ORP41A
+    naam: Bouwstenen van informatiesystemen
+    id: 20517
+    fase: "001"
+  - opoCode: ORP42A
+    naam: Introductie in programmeren
+    id: 20518
+    fase: "001"
+  - opoCode: ORP43A
+    naam: Internet & netwerkfundamenten
+    id: 20519
+    fase: "001"
+  - opoCode: ORP44A
+    naam: Basic web development
+    id: 20520
+    fase: "001"
+  - opoCode: ORP45A
+    naam: Professioneel leren en werken
+    id: 20521
+    fase: "001"
+  - opoCode: ORP46A
+    naam: Portfolio
+    id: 20785
+    fase: "002"
+  - opoCode: ORP47A
+    naam: Starten als professional
+    id: 20786
+    fase: "002"
+  - opoCode: ORP66A
+    naam: Programmeerfundamenten
+    id: 23716
+    fase: "001"
+  - opoCode: ORP67A
+    naam: Databeheer & visualisatie
+    id: 23717
+    fase: "001"
+  - opoCode: ORP68A
+    naam: Programmeertechnieken & ontwerpen
+    id: 23718
+    fase: "001"
+  - opoCode: ORP69A
+    naam: Dynamic Web Development
+    id: 23719
+    fase: "001"
+  - opoCode: ORP70A
+    naam: "Werkplekleren A: Softwareontwikkelworkflow"
+    id: 23720
+    fase: "001"
+  - opoCode: ORP71A
+    naam: Programmeertechnieken & testen
+    id: 23721
+    fase: "002"
+  - opoCode: ORP72A
+    naam: Application development
+    id: 23722
+    fase: "002"

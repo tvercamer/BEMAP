@@ -1,0 +1,89 @@
+institution: Odisee
+academiejaar: 2026
+programme:
+  id: 542
+  code: O-SC-HPBGRD
+  naam: Graduaat in het programmeren - in dagonderwijs (Brussel)
+source: https://ects-invoer.odisee.be/Leerresultaat?opleidingId=542&academiejaar=2026
+fetched_at: 2026-07-12T10:11:09.973Z
+outcomes:
+  - code: LR1
+    volgnummer: 1
+    nl: De realisatie van een softwareproject met beperktere complexiteit
+      voorbereiden, rekening houdend met de projectdoelstellingen.
+    en: ""
+  - code: LR2
+    volgnummer: 2
+    nl: Een plan van aanpak opmaken op basis van de analyse, het projectplan, de
+      vooropgestelde methodiek en doelstellingen tijdens de uitvoering van het
+      project. Het afstemmen van de voorgestelde aanpak met de
+      software-architect of de analist.
+    en: ""
+  - code: LR3
+    volgnummer: 3
+    nl: (Onderdelen van) softwareapplicaties en gegevensstructuren realiseren, op
+      basis van de analyse en het projectplan, de beschikbare tools, de
+      vooropgestelde methodiek en de eigen planning.
+    en: ""
+  - code: LR4
+    volgnummer: 4
+    nl: Medeverantwoordelijk zijn voor de eigen digitale werkomgeving en bijdragen
+      tot de gedeelde besturingssystemen en infrastructuur nodig voor het
+      ontwikkelen, testen en in productie brengen van projecten.
+    en: ""
+  - code: LR5
+    volgnummer: 5
+    nl: Programmeren volgens de standaarden en afspraken binnen de organisatie zoals
+      beschreven in de bedrijfsprocedures, (kwaliteits)standaarden, de
+      voorschriften en eisen voor informatieveiligheid
+    en: ""
+  - code: LR6
+    volgnummer: 6
+    nl: De werking en functionaliteit van de gerealiseerde code nagaan, volgens
+      (zelf ontwikkelde) testscenario’s, gebruikmakend van de juiste tools. Deze
+      code verbeteren, na bespreking met de ontwikkelaar of projectleider, op
+      basis van ontvangen feedback van de gebruikers.
+    en: ""
+  - code: LR7
+    volgnummer: 7
+    nl: In overleg met de ontwikkelaar, projectleider of functioneel analist nagaan
+      of het opgeleverde product onderhoud en/of aanpassingen nodig heeft. Het
+      onderhoud en de aanpassingen uitvoeren, op basis van een plan, rekening
+      houdend met eerder gemaakte afspraken.
+    en: ""
+  - code: LR8
+    volgnummer: 8
+    nl: Constructief en actief samenwerken in een (multidisciplinair) team en actief
+      participeren tijdens overlegmomenten. Mee zoeken naar oplossingen om
+      problemen te vermijden
+    en: ""
+  - code: LR9
+    volgnummer: 9
+    nl: Informatie verzamelen, helder communiceren en efficiënt rapporteren over het
+      geleverde werk, afgestemd op het doelpubliek. Hiervoor onder andere
+      gebruiken van het gepaste Engelstalige vakjargon.
+    en: ""
+  - code: LR10
+    volgnummer: 10
+    nl: Op een adequate en overzichtelijke manier documenteren van de zelf
+      ontwikkelde applicaties, volgens de afspraken binnen het bedrijf. Ervoor
+      zorgen dat afwijkende of nieuwe oplossingen hierin geïntegreerd worden.
+      Kwalitatieve input aanleveren voor de gebruikershandleidingen, opleidingen
+      en andere online hulpbronnen.
+    en: ""
+  - code: LR11
+    volgnummer: 11
+    nl: Relevante IT-evoluties actief opvolgen op en de eigen praktijk continu
+      ontwikkelen en verbeteren. De behoefte aan eigen ontwikkelingsnoden
+      identificeren.
+    en: ""
+  - code: LR12
+    volgnummer: 12
+    nl: Deontologisch handelen en rekening houden met de veiligheids- en
+      privacyrichtlijnen.
+    en: ""
+  - code: LR13
+    volgnummer: 13
+    nl: De gegradueerde gebruikt de mogelijkheden van AI op een doeltreffende,
+      kritische en ethische manier
+    en: ""

@@ -22,8 +22,5 @@
   "[yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "files.eol": "\n",
-  "yaml.schemas": {
-    "./schemas/olr.schema.json": "knowledge/programmes/**/olr.yaml"
-  }
+  "files.eol": "\n"
 }

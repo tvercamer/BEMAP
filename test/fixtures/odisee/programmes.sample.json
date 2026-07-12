@@ -1,0 +1,32 @@
+[
+  {
+    "id": 542,
+    "naam": "Graduaat in het programmeren - in dagonderwijs (Brussel)",
+    "academiejaar": 2026,
+    "code": "O-SC-HPBGRD",
+    "leerresultaten": null,
+    "opos": null,
+    "verantwoordingen": null,
+    "structuren": null
+  },
+  {
+    "id": 457,
+    "naam": "Bachelor in de agro- en biotechnologie - 2de diploma (Sint-Niklaas)",
+    "academiejaar": 2026,
+    "code": "O-SC-IAWBIJ",
+    "leerresultaten": null,
+    "opos": null,
+    "verantwoordingen": null,
+    "structuren": null
+  },
+  {
+    "id": 206,
+    "naam": "Bachelor in de agro- en biotechnologie - in afstandsonderwijs (Sint-Niklaas)",
+    "academiejaar": 2026,
+    "code": "O-SC-IAWHAO",
+    "leerresultaten": null,
+    "opos": null,
+    "verantwoordingen": null,
+    "structuren": null
+  }
+]

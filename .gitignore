@@ -12,3 +12,8 @@ coverage/
 # Local env
 .env
 .env.local
+
+# Professor course profiles — kept local (interim for the web-app feature).
+# The example template is tracked so the shape is documented.
+/profiles/*
+!/profiles/example.profile.yaml
