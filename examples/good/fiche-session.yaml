@@ -36,12 +36,12 @@ learningOutcomes:
 
 assessments:
   - id: A1
-    title: Written exam
-    form: written-exam
+    title: Written report
+    form: Verslag
     weight: 60
   - id: A2
-    title: Case project with report
-    form: project
+    title: Case project paper
+    form: Paper/Werkstuk
     weight: 40
 
 # LO × assessment coverage. Every LO covered; every assessment used.

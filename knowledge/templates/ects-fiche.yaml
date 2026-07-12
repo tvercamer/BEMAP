@@ -1,0 +1,147 @@
+# Odisee ECTS-fiche — structured field-spec (NL variant).
+# Source: the Odisee web-based ECTS tool (fields + options, per ects.txt).
+# The EN variant follows the same rules with some terms renamed — handled later.
+# Stage 4 (fiche-assembly) fills these fields; some are sourced from the OLR API or from a
+# per-programme boilerplate config (see knowledge/programmes/<slug>/).
+status: real
+institution: Odisee
+language: nl
+
+sections:
+  - id: vak
+    title: Vak
+    fields:
+      - id: doelstellingen
+        label: Doelstellingen
+        type: outcomes
+        required: true
+        source: olr-api # the programme's OLRs come literally from the API
+        transforms:
+          - strip-trailing-nvt # remove a trailing " (NVT)" from each objective string
+        programme_standard_sentence: optional # some programmes prefix a fixed sentence
+
+      - id: begintermen
+        label: Begintermen
+        type: richtext
+        required: false
+        # Some programmes set a fixed sentence; if none, the professor picks one.
+        programme_standard_sentence: optional
+        allow_append: true
+
+  - id: onderwijsleeractiviteiten
+    title: Onderwijsleeractiviteiten
+    fields:
+      - id: inhoud
+        label: Inhoud
+        type: richtext # text, a list, or a combination
+        required: true
+
+      - id: studiemateriaal
+        label: Studiemateriaal
+        type: richtext # what material, where to find it, and optionally the cost
+        programme_standard_sentence: optional
+
+      - id: toelichting_onderwijstaal
+        label: Toelichting onderwijstaal
+        type: richtext
+        default: same-as-opo-language # may note that some material is in another language
+
+      - id: werkvorm
+        label: Werkvorm
+        type: multi-select
+        required: true
+        options:
+          - Bachelorproef
+          - College
+          - College-opdracht
+          - College-practicum
+          - College-practicum-opdracht
+          - Excursie
+          - Graduaatsproef
+          - Masterproef
+          - Opdracht
+          - Practicum
+          - Practicum-opdracht
+          - Stage # NOTE: source read "State" — assumed to mean "Stage"; please confirm
+          - Werkplekleren
+
+      - id: toelichting_werkvorm
+        label: Toelichting werkvorm
+        type: richtext-per-werkvorm # explain, per chosen werkvorm, how it is used
+        includes_study_load: true # study-load is laid out here; rule: 1 studiepunt = 25 uur
+        # NOTE: the explanation uses a DIFFERENT list than `werkvorm` above.
+        explanation_categories:
+          - Begeleide zelfstudie
+          - Casuïstiek
+          - Digitaal leren
+          - Feedback
+          - Interactievormen
+          - Labo
+          - Oefeningen/opdrachten
+          - Portfolio
+          - Reflectie
+          - Samenwerkend leren/Collaboratief leren
+          - Simulatie
+          - Spelvorm
+          - Werkplekleren
+
+  - id: evaluatieactiviteiten
+    title: Evaluatieactiviteiten
+    fields:
+      - id: evaluatie_type
+        label: Type
+        type: single-select
+        required: true
+        options:
+          - Examen tijdens de examenperiode
+          - Examen buiten de normale examenperiode
+          - Partiële of permanente evaluatie met examen tijdens de examenperiode
+          - Permanente evaluatie zonder examen tijdens de examenperiode
+
+      - id: evaluatie_vorm
+        label: Vorm
+        type: multi-select
+        required: true
+        # These are the OER-permitted evaluation forms (mirrored in rules/oer-evaluation.yaml).
+        options:
+          - Paper/Werkstuk
+          - Verslag
+          - Presentatie
+          - Medewerking tijdens contactmomenten
+          - Self assessment/Peer assessment
+          - Portfolio
+          - Procesevaluatie
+          - Vaardigheidstoets
+          - Take-home
+          - Ontwerp/Product
+
+      - id: gebruik_leermateriaal
+        label: Gebruik leermateriaal
+        type: multi-select
+        options:
+          - Cursusmateriaal
+          - Formularium
+          - Rekenmachine
+          - Computer
+          - Naslagwerk
+          - Geen
+          - Wetboek/codex
+          - Partituren
+
+      - id: vraagvorm
+        label: Vraagvorm
+        type: multi-select
+        options:
+          - Meerkeuzevragen
+          - Open vragen
+          - Gesloten vragen
+
+      - id: toelichting
+        label: Toelichting
+        type: richtext # e.g. afwezigheidsbeleid, cijferbepaling, disclaimers
+        programme_standard_sentence: prefix # some programmes require a fixed sentence first
+
+      - id: toelichting_herkansing
+        label: Toelichting bij herkansing
+        type: richtext
+        # Similar to `toelichting`, but first chance and resit need not be identical.

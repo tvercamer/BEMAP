@@ -342,7 +342,7 @@ session language. This is BEMAP's anchor deliverable.
 1. **Run the quality gate first.** Do not assemble a fiche that has not passed (or been
    explicitly acknowledged against) the [quality gate](05-quality-gate.md). See its policy
    for warnings vs. blocking.
-2. **Fill every template field** from `knowledge/templates/ects-fiche.md` using the gathered
+2. **Fill every template field** from `knowledge/templates/ects-fiche.yaml` using the gathered
    artifacts. Do not leave template fields silently blank — if a field has no source, ask
    the professor or mark it clearly as to-be-completed.
 3. **Preserve traceability.** Keep the LO→OLR mapping and the toetsmatrijs visible in the
@@ -525,7 +525,7 @@ deze vermijdlijst staat.
 
 <!-- source: knowledge/rules/quality-gate.yaml -->
 
-## Ruleset: quality-gate.yaml
+## Structured asset: quality-gate.yaml
 
 ```yaml
 # BEMAP quality gate — constructive-alignment checks (functional scope §3.3).
@@ -601,100 +601,198 @@ checks:
 
 <!-- source: knowledge/rules/oer-evaluation.md -->
 
-# OER — evaluation rules (reference)
+# OER — evaluation rules (Odisee)
 
-> **PLACEHOLDER.** Replace with the relevant section of the target institution's real **OER**
-> (onderwijs- en examenreglement) on permitted evaluation forms, weighting, and resit
-> (herkansing). This prose is what the coach reads in Stage 2; the machine-checkable subset
-> lives in [`oer-evaluation.yaml`](./oer-evaluation.yaml) and must stay consistent with it.
+The authoritative source is Odisee's **OER** (onderwijs- en examenreglement) plus the
+campus-specific bijlage. These are fetched and snapshotted into the KB (see below); the
+machine-checkable subset lives in [`oer-evaluation.yaml`](./oer-evaluation.yaml).
 
-## Permitted evaluation forms
+## Sources (to be snapshotted by the OER sync — chunk B)
 
-The following evaluation forms are permitted (placeholder set — confirm against the real
-OER):
+- **General OER (2026–2027):** <https://www.odisee.be/media/34279>
+  (currently redirects to the dated PDF; the media URL is the stable entry point).
+- **Campus Brussel bijlage (2026–2027):** <https://www.odisee.be/media/34285>
 
-- Written exam (schriftelijk examen)
-- Oral exam (mondeling examen)
-- Permanent evaluation (permanente evaluatie)
-- Assignment / paper (taak / paper)
-- Project
+> The dated PDF URLs change; always resolve through the `media/<id>` links above. Until the
+> OER sync lands, treat the PDFs as the source of truth for weighting, resit, tolerances, and
+> thresholds — this file only summarises the evaluation-form list.
+
+## Permitted evaluation forms (fiche "Vorm")
+
+The forms permitted on an Odisee fiche (mirrored in `oer-evaluation.yaml` → `permitted_forms`):
+
+- Paper/Werkstuk
+- Verslag
+- Presentatie
+- Medewerking tijdens contactmomenten
+- Self assessment/Peer assessment
 - Portfolio
-- Practical / skills assessment (vaardigheidstoets)
+- Procesevaluatie
+- Vaardigheidstoets
+- Take-home
+- Ontwerp/Product
 
-## Weighting
+Each fiche also picks one evaluation **type** (exam timing) — see
+`templates/ects-fiche.yaml` → `evaluatie_type`.
 
-- The weights of all components of an OPO must sum to **100%**.
-- No single component may exceed **{{max_component_weight}}%** (placeholder — set from OER).
+## Weighting, resit, tolerances
 
-## Resit (herkansing)
-
-- State per component whether a resit is possible and under what conditions.
-- {{resit_rules}} (placeholder — fill from the real OER).
-
-## Tolerances and thresholds
-
-- {{pass_threshold_and_tolerance_rules}} (placeholder — fill from the real OER).
+Governed by the OER PDFs above. Component weights on an OPO sum to 100%. Resit (herkansing)
+rules and grade tolerances are defined in the OER and the campus bijlage — to be extracted
+into this section when the OER snapshot is added.
 
 ---
 
-<!-- source: knowledge/templates/ects-fiche.md -->
+<!-- source: knowledge/templates/ects-fiche.yaml -->
 
-# ECTS-fiche template
+## Structured asset: ects-fiche.yaml
 
-> **PLACEHOLDER.** Replace this with the target institution's **real** blank ECTS-fiche
-> (all fields, exact labels and order). The fields below are a generic Flemish structure so
-> Stage 4 can assemble a fiche today; swap them for the institution's official template
-> before the pilot. Keep the `{{placeholders}}` — Stage 4 fills them from the gathered
-> artifacts.
+```yaml
+# Odisee ECTS-fiche — structured field-spec (NL variant).
+# Source: the Odisee web-based ECTS tool (fields + options, per ects.txt).
+# The EN variant follows the same rules with some terms renamed — handled later.
+# Stage 4 (fiche-assembly) fills these fields; some are sourced from the OLR API or from a
+# per-programme boilerplate config (see knowledge/programmes/<slug>/).
+status: real
+institution: Odisee
+language: nl
 
-## Identificatie
+sections:
+  - id: vak
+    title: Vak
+    fields:
+      - id: doelstellingen
+        label: Doelstellingen
+        type: outcomes
+        required: true
+        source: olr-api # the programme's OLRs come literally from the API
+        transforms:
+          - strip-trailing-nvt # remove a trailing " (NVT)" from each objective string
+        programme_standard_sentence: optional # some programmes prefix a fixed sentence
 
-- **OPO-naam:** {{opo_name}}
-- **OPO-code:** {{opo_code}}
-- **Opleiding:** {{programme}}
-- **Afstudeerrichting / traject:** {{track}}
-- **Niveau:** {{level}} (graduaat / bachelor / master)
-- **Fase / semester:** {{curriculum_position}}
-- **Studiepunten (ECTS):** {{ects}}
-- **Onderwijstaal:** {{language}}
-- **Docent(en):** {{teachers}}
+      - id: begintermen
+        label: Begintermen
+        type: richtext
+        required: false
+        # Some programmes set a fixed sentence; if none, the professor picks one.
+        programme_standard_sentence: optional
+        allow_append: true
 
-## Begincompetenties
+  - id: onderwijsleeractiviteiten
+    title: Onderwijsleeractiviteiten
+    fields:
+      - id: inhoud
+        label: Inhoud
+        type: richtext # text, a list, or a combination
+        required: true
 
-{{begincompetenties}}
+      - id: studiemateriaal
+        label: Studiemateriaal
+        type: richtext # what material, where to find it, and optionally the cost
+        programme_standard_sentence: optional
 
-## Leerresultaten (met opwaartse alignering)
+      - id: toelichting_onderwijstaal
+        label: Toelichting onderwijstaal
+        type: richtext
+        default: same-as-opo-language # may note that some material is in another language
 
-For each course learning outcome, list its text and the programme LO code(s) it aligns to.
+      - id: werkvorm
+        label: Werkvorm
+        type: multi-select
+        required: true
+        options:
+          - Bachelorproef
+          - College
+          - College-opdracht
+          - College-practicum
+          - College-practicum-opdracht
+          - Excursie
+          - Graduaatsproef
+          - Masterproef
+          - Opdracht
+          - Practicum
+          - Practicum-opdracht
+          - Stage # NOTE: source read "State" — assumed to mean "Stage"; please confirm
+          - Werkplekleren
 
-{{learning_outcomes_with_olr_mapping}}
+      - id: toelichting_werkvorm
+        label: Toelichting werkvorm
+        type: richtext-per-werkvorm # explain, per chosen werkvorm, how it is used
+        includes_study_load: true # study-load is laid out here; rule: 1 studiepunt = 25 uur
+        # NOTE: the explanation uses a DIFFERENT list than `werkvorm` above.
+        explanation_categories:
+          - Begeleide zelfstudie
+          - Casuïstiek
+          - Digitaal leren
+          - Feedback
+          - Interactievormen
+          - Labo
+          - Oefeningen/opdrachten
+          - Portfolio
+          - Reflectie
+          - Samenwerkend leren/Collaboratief leren
+          - Simulatie
+          - Spelvorm
+          - Werkplekleren
 
-## Inhoud
+  - id: evaluatieactiviteiten
+    title: Evaluatieactiviteiten
+    fields:
+      - id: evaluatie_type
+        label: Type
+        type: single-select
+        required: true
+        options:
+          - Examen tijdens de examenperiode
+          - Examen buiten de normale examenperiode
+          - Partiële of permanente evaluatie met examen tijdens de examenperiode
+          - Permanente evaluatie zonder examen tijdens de examenperiode
 
-{{content}}
+      - id: evaluatie_vorm
+        label: Vorm
+        type: multi-select
+        required: true
+        # These are the OER-permitted evaluation forms (mirrored in rules/oer-evaluation.yaml).
+        options:
+          - Paper/Werkstuk
+          - Verslag
+          - Presentatie
+          - Medewerking tijdens contactmomenten
+          - Self assessment/Peer assessment
+          - Portfolio
+          - Procesevaluatie
+          - Vaardigheidstoets
+          - Take-home
+          - Ontwerp/Product
 
-## Werkvormen
+      - id: gebruik_leermateriaal
+        label: Gebruik leermateriaal
+        type: multi-select
+        options:
+          - Cursusmateriaal
+          - Formularium
+          - Rekenmachine
+          - Computer
+          - Naslagwerk
+          - Geen
+          - Wetboek/codex
+          - Partituren
 
-{{teaching_formats}}
+      - id: vraagvorm
+        label: Vraagvorm
+        type: multi-select
+        options:
+          - Meerkeuzevragen
+          - Open vragen
+          - Gesloten vragen
 
-## Studiemateriaal
+      - id: toelichting
+        label: Toelichting
+        type: richtext # e.g. afwezigheidsbeleid, cijferbepaling, disclaimers
+        programme_standard_sentence: prefix # some programmes require a fixed sentence first
 
-{{study_materials}}
-
-## Evaluatie
-
-Evaluation components with form, weight, timing, and resit (herkansing) eligibility.
-
-{{evaluation_plan}}
-
-### Toetsmatrijs
-
-LO × assessment-component coverage matrix.
-
-{{toetsmatrijs}}
-
-## Studiebelasting
-
-Contacturen + zelfstudie, totaal, en verantwoording t.o.v. de studiepunten.
-
-{{study_load_justification}}
+      - id: toelichting_herkansing
+        label: Toelichting bij herkansing
+        type: richtext
+        # Similar to `toelichting`, but first chance and resit need not be identical.
+```

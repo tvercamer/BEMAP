@@ -27,12 +27,12 @@ learningOutcomes:
 
 assessments:
   - id: A1
-    title: Written exam
-    form: written-exam
+    title: Written report
+    form: Verslag
     weight: 50
   - id: A2
-    title: Group presentation
-    form: presentation # QG-05: "presentation" is not a permitted OER form
+    title: Essay
+    form: Essay # QG-05: "Essay" is not a permitted OER form
     weight: 40 # QG-05: weights sum to 90, not 100
 
 # QG-01: LO3 not covered. QG-02: A2 appears in no entry (orphan assessment).

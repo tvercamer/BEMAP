@@ -2,39 +2,46 @@
 id: oer-evaluation
 title: Rules — OER Evaluation (prose reference)
 role: rules
-status: placeholder
+status: partial
+institution: Odisee
 ---
 
-# OER — evaluation rules (reference)
+# OER — evaluation rules (Odisee)
 
-> **PLACEHOLDER.** Replace with the relevant section of the target institution's real **OER**
-> (onderwijs- en examenreglement) on permitted evaluation forms, weighting, and resit
-> (herkansing). This prose is what the coach reads in Stage 2; the machine-checkable subset
-> lives in [`oer-evaluation.yaml`](./oer-evaluation.yaml) and must stay consistent with it.
+The authoritative source is Odisee's **OER** (onderwijs- en examenreglement) plus the
+campus-specific bijlage. These are fetched and snapshotted into the KB (see below); the
+machine-checkable subset lives in [`oer-evaluation.yaml`](./oer-evaluation.yaml).
 
-## Permitted evaluation forms
+## Sources (to be snapshotted by the OER sync — chunk B)
 
-The following evaluation forms are permitted (placeholder set — confirm against the real
-OER):
+- **General OER (2026–2027):** <https://www.odisee.be/media/34279>
+  (currently redirects to the dated PDF; the media URL is the stable entry point).
+- **Campus Brussel bijlage (2026–2027):** <https://www.odisee.be/media/34285>
 
-- Written exam (schriftelijk examen)
-- Oral exam (mondeling examen)
-- Permanent evaluation (permanente evaluatie)
-- Assignment / paper (taak / paper)
-- Project
+> The dated PDF URLs change; always resolve through the `media/<id>` links above. Until the
+> OER sync lands, treat the PDFs as the source of truth for weighting, resit, tolerances, and
+> thresholds — this file only summarises the evaluation-form list.
+
+## Permitted evaluation forms (fiche "Vorm")
+
+The forms permitted on an Odisee fiche (mirrored in `oer-evaluation.yaml` → `permitted_forms`):
+
+- Paper/Werkstuk
+- Verslag
+- Presentatie
+- Medewerking tijdens contactmomenten
+- Self assessment/Peer assessment
 - Portfolio
-- Practical / skills assessment (vaardigheidstoets)
+- Procesevaluatie
+- Vaardigheidstoets
+- Take-home
+- Ontwerp/Product
 
-## Weighting
+Each fiche also picks one evaluation **type** (exam timing) — see
+`templates/ects-fiche.yaml` → `evaluatie_type`.
 
-- The weights of all components of an OPO must sum to **100%**.
-- No single component may exceed **{{max_component_weight}}%** (placeholder — set from OER).
+## Weighting, resit, tolerances
 
-## Resit (herkansing)
-
-- State per component whether a resit is possible and under what conditions.
-- {{resit_rules}} (placeholder — fill from the real OER).
-
-## Tolerances and thresholds
-
-- {{pass_threshold_and_tolerance_rules}} (placeholder — fill from the real OER).
+Governed by the OER PDFs above. Component weights on an OPO sum to 100%. Resit (herkansing)
+rules and grade tolerances are defined in the OER and the campus bijlage — to be extracted
+into this section when the OER snapshot is added.

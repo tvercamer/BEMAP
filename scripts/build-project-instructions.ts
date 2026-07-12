@@ -43,13 +43,13 @@ const manifest: Section[] = [
   { path: 'knowledge/reference/bloom-verbs.nl.md', kind: 'md' },
   { path: 'knowledge/rules/quality-gate.yaml', kind: 'yaml' },
   { path: 'knowledge/rules/oer-evaluation.md', kind: 'md' },
-  { path: 'knowledge/templates/ects-fiche.md', kind: 'md' },
+  { path: 'knowledge/templates/ects-fiche.yaml', kind: 'yaml' },
 ];
 
 function renderSection(section: Section): string {
   const provenance = `<!-- source: ${section.path} -->`;
   if (section.kind === 'yaml') {
-    return `${provenance}\n\n## Ruleset: ${basename(section.path)}\n\n\`\`\`yaml\n${read(section.path).trimEnd()}\n\`\`\``;
+    return `${provenance}\n\n## Structured asset: ${basename(section.path)}\n\n\`\`\`yaml\n${read(section.path).trimEnd()}\n\`\`\``;
   }
   return `${provenance}\n\n${stripFrontMatter(read(section.path)).trimEnd()}`;
 }

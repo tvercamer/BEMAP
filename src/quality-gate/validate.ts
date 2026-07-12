@@ -108,9 +108,9 @@ const evaluators: Record<string, Evaluator> = {
   },
 
   // QG-04 — total study-load within the ECTS band and consistent with the breakdown.
-  'QG-04': (s) => {
-    const min = s.ects * 25;
-    const max = s.ects * 30;
+  'QG-04': (s, oer) => {
+    const min = s.ects * oer.study_load.min_hours_per_credit;
+    const max = s.ects * oer.study_load.max_hours_per_credit;
     const sum = s.studyLoad.breakdown.reduce((acc, item) => acc + item.hours, 0);
     const withinBand = s.studyLoad.total >= min && s.studyLoad.total <= max;
     const consistent = sum === s.studyLoad.total;

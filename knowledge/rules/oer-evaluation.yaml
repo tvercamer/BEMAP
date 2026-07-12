@@ -1,20 +1,33 @@
-# Machine-checkable subset of the OER evaluation rules, consumed by quality-gate check QG-05.
-# Keep consistent with the prose in oer-evaluation.md.
-# PLACEHOLDER values — replace with the target institution's real OER parameters.
-status: placeholder
+# Machine-checkable house rules for evaluation + study-load, consumed by the quality gate.
+# permitted_forms mirrors the "Evaluatievorm" options in templates/ects-fiche.yaml (Odisee).
+# The authoritative OER prose is the snapshotted PDF (see oer-evaluation.md); this file holds
+# only the checkable subset (QG-04 study-load, QG-05 evaluation).
+status: real
+institution: Odisee
 
-# Evaluation forms the OER permits. QG-05 fails a session using any form not in this set.
+# Evaluation forms permitted on an Odisee fiche (the "Vorm" dropdown). QG-05 fails a session
+# using any form not in this set. Values are the exact display labels used on the fiche.
 permitted_forms:
-  - written-exam
-  - oral-exam
-  - permanent-evaluation
-  - assignment
-  - project
-  - portfolio
-  - practical
+  - Paper/Werkstuk
+  - Verslag
+  - Presentatie
+  - Medewerking tijdens contactmomenten
+  - Self assessment/Peer assessment
+  - Portfolio
+  - Procesevaluatie
+  - Vaardigheidstoets
+  - Take-home
+  - Ontwerp/Product
 
-# Component weights across an OPO must sum to exactly this (percent).
+# Component weights across an OPO must sum to this (percent). BEMAP tracks weights as an
+# alignment device even though the Odisee fiche captures them in the Toelichting prose.
 weight_must_sum_to: 100
 
-# No single component may exceed this weight (percent). null = no cap.
+# No single component may exceed this weight (percent); null = no cap.
 max_component_weight: 100
+
+# Study-load band (QG-04). Odisee house rule: 1 studiepunt = 25 uur; the structuurdecreet
+# allows up to 30. Total study hours must fall within [ects * min, ects * max].
+study_load:
+  min_hours_per_credit: 25
+  max_hours_per_credit: 30
