@@ -3,6 +3,7 @@
 Backwards Educational Mapping And Planning
 
 ## On this page
+
 1. [What is this tool?](#what-is-this-tool)
 2. [Why does it exist?](#why-does-it-exist)
 3. [How do I install it?](#how-do-i-install-it)
@@ -22,6 +23,7 @@ BEMAP encodes an opinionated pedagogical workflow rather than being a blank chat
 ## How do I use it?
 
 ## Terminology
+
 - Backward Design
 - ECTS
 - OPO: Opleidingsonderdeel (course unit)

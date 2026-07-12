@@ -1,0 +1,40 @@
+{
+  "name": "bemap",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Backwards Educational Mapping And Planning",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "format": "biome check --write . && prettier --write \"**/*.{md,yaml,yml}\"",
+    "lint": "biome check . && prettier --check \"**/*.{md,yaml,yml}\" && markdownlint-cli2 \"**/*.md\" \"#node_modules\" \"#project\"",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "build:project": "tsx scripts/build-project-instructions.ts",
+    "check": "npm run lint && npm run typecheck && npm run test",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@types/node": "^22.10.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.3.0",
+    "markdownlint-cli2": "^0.16.0",
+    "prettier": "^3.4.2",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  },
+  "dependencies": {
+    "yaml": "^2.6.1",
+    "zod": "^3.24.1"
+  },
+  "lint-staged": {
+    "*.{ts,js,json}": "biome check --write --no-errors-on-unmatched",
+    "*.{yaml,yml}": "prettier --write",
+    "*.md": ["prettier --write", "markdownlint-cli2 --fix"]
+  }
+}

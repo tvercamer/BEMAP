@@ -1,0 +1,15 @@
+{
+  // Prose-friendly Markdown rules. Prettier owns formatting; markdownlint owns structure.
+  "config": {
+    "default": true,
+    // Prose lines are not wrapped to a hard column.
+    "MD013": false,
+    // Allow inline HTML where a construct needs it.
+    "MD033": false,
+    // Duplicate headings are fine across different sections (e.g. per-stage "Inputs").
+    "MD024": { "siblings_only": true },
+    // Allow the first line to be something other than a top-level heading (front matter).
+    "MD041": false
+  },
+  "ignores": ["node_modules", "project", "**/CHANGELOG.md"]
+}

@@ -1,0 +1,4 @@
+# Prettier only handles Markdown/YAML here; Biome owns TS/JSON.
+node_modules
+project/
+coverage/
