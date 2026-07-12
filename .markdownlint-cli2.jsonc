@@ -13,5 +13,5 @@
     // Allow the first line to be something other than a top-level heading (front matter).
     "MD041": false
   },
-  "ignores": ["node_modules", "project", "**/CHANGELOG.md"]
+  "ignores": ["node_modules", "project", "knowledge/rules/oer-snapshots", "**/CHANGELOG.md"]
 }

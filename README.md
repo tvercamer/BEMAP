@@ -30,12 +30,13 @@ npm run check  # lint + typecheck + tests — the same checks CI runs
 BEMAP is authored as portable Markdown/YAML knowledge assets ("methodology as code"). The
 scripts you'll use most:
 
-| Script                  | Does                                                         |
-| ----------------------- | ------------------------------------------------------------ |
-| `npm run build:project` | Assemble `project/project-instructions.md` from `knowledge/` |
-| `npm run sync:olr`      | Fetch a programme's OLRs + OPO index from the Odisee API     |
-| `npm run check`         | Lint, typecheck, and run the tests                           |
-| `npm run format`        | Auto-format (Biome for TS/JSON, Prettier for MD/YAML)        |
+| Script                  | Does                                                          |
+| ----------------------- | ------------------------------------------------------------- |
+| `npm run build:project` | Assemble `project/project-instructions.md` from `knowledge/`  |
+| `npm run sync:olr`      | Fetch a programme's OLRs + OPO index from the Odisee API      |
+| `npm run sync:oer`      | Snapshot the OER PDFs (general + campus bijlagen) to Markdown |
+| `npm run check`         | Lint, typecheck, and run the tests                            |
+| `npm run format`        | Auto-format (Biome for TS/JSON, Prettier for MD/YAML)         |
 
 ### Syncing a programme's learning outcomes
 
@@ -64,10 +65,12 @@ The MVP is a **chat product**. To stand it up:
    **Intake → Learning Outcomes → Assessment → Study-load → Quality gate → Fiche assembly**,
    drafting at each step and letting you review before moving on.
 
-Before a real pilot, replace the placeholder institution assets (`status: placeholder`) with
-the target institution's real content — the ECTS-fiche template
-(`knowledge/templates/`), the OER rules (`knowledge/rules/oer-evaluation.*`), and a
-programme's OLR (`knowledge/programmes/`) — then re-run `npm run build:project`.
+The Odisee institution assets are real: the ECTS-fiche field-spec
+(`knowledge/templates/ects-fiche.yaml`), the evaluation rules
+(`knowledge/rules/oer-evaluation.*`) with snapshotted OER PDFs, and synced programme OLRs
+(`knowledge/programmes/`). Refresh them with `npm run sync:olr` / `npm run sync:oer`, then
+re-run `npm run build:project`. (English fiche terminology and the synthetic
+`example-programme` placeholder are still to be finalised.)
 
 ## Terminology
 

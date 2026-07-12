@@ -1,0 +1,11 @@
+# OER sources for the snapshot sync (npm run sync:oer). Add campus bijlagen here as needed.
+# Always use the stable media/<id> URLs; they 302-redirect to dated PDFs that change.
+institution: Odisee
+academiejaar: "2026-2027"
+sources:
+  - id: general
+    label: Onderwijs- en Examenreglement (algemeen)
+    url: https://www.odisee.be/media/34279
+  - id: campus-brussel
+    label: OER-bijlage campus Brussel
+    url: https://www.odisee.be/media/34285

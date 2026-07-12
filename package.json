@@ -15,6 +15,7 @@
     "test:watch": "vitest",
     "build:project": "tsx scripts/build-project-instructions.ts",
     "sync:olr": "tsx scripts/sync-olr.ts",
+    "sync:oer": "tsx scripts/sync-oer.ts",
     "check": "npm run lint && npm run typecheck && npm run test",
     "prepare": "husky"
   },
@@ -30,12 +31,8 @@
     "vitest": "^2.1.8"
   },
   "dependencies": {
+    "unpdf": "^1.6.2",
     "yaml": "^2.6.1",
     "zod": "^3.24.1"
-  },
-  "lint-staged": {
-    "*.{ts,js,json}": "biome check --write --no-errors-on-unmatched",
-    "*.{yaml,yml}": "prettier --write",
-    "*.md": ["prettier --write", "markdownlint-cli2 --fix"]
   }
 }

@@ -2,3 +2,5 @@
 node_modules
 project/
 coverage/
+# Generated OER snapshots (raw extracted PDF text — not authored).
+knowledge/rules/oer-snapshots/
