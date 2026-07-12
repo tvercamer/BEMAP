@@ -1,0 +1,67 @@
+# BEMAP quality gate — constructive-alignment checks (functional scope §3.3).
+# This file is the single source of truth for the checks. Two consumers read it:
+#   1. The coach (chat), which runs the checks conversationally before assembling a fiche.
+#   2. The TypeScript validator (src/quality-gate), which applies them to a structured
+#      fiche-session object and is the seed of the future web app's validation logic.
+# Keep prose OUT of here; the narrative wrapper lives in knowledge/stages/05-quality-gate.md.
+
+version: 1
+
+policy:
+  # In the Chat MVP the coach cannot truly block; it warns and asks the professor to confirm.
+  chat: warn-and-confirm
+  # The future web app refuses assembly while any `blocking` check fails.
+  app: block-on-blocking
+
+# Severity: `blocking` = alignment is broken, must be resolved (or explicitly overridden).
+#           `advisory` = quality concern to flag, does not by itself stop assembly.
+checks:
+  - id: QG-01
+    name: no-orphan-learning-outcomes
+    description: Every course learning outcome is assessed by at least one evaluation component.
+    severity: blocking
+    automatable: true
+    inputs: [learningOutcomes, toetsmatrijs]
+
+  - id: QG-02
+    name: no-orphan-assessments
+    description: Every assessment component maps to at least one course learning outcome.
+    severity: blocking
+    automatable: true
+    inputs: [assessments, toetsmatrijs]
+
+  - id: QG-03
+    name: measurable-verbs
+    description: >-
+      Each learning outcome uses an observable, assessable action verb at the level
+      appropriate to the programme (graduaat/bachelor/master); banned vague verbs are absent.
+    severity: advisory
+    automatable: true
+    inputs: [learningOutcomes, level]
+    reference: knowledge/reference/bloom-verbs
+
+  - id: QG-04
+    name: study-load-within-band
+    description: >-
+      Total study-load hours fall within the ECTS band for the credit size
+      (credits × 25 ≤ total ≤ credits × 30).
+    severity: blocking
+    automatable: true
+    inputs: [ects, studyLoad]
+
+  - id: QG-05
+    name: oer-compliant-assessment
+    description: >-
+      All evaluation forms are permitted by the OER, weights sum to 100%, and each weight is
+      within any OER limit.
+    severity: blocking
+    automatable: true
+    inputs: [assessments]
+    reference: knowledge/rules/oer-evaluation.md
+
+  - id: QG-06
+    name: olr-traceability
+    description: Every course learning outcome traces to at least one programme learning outcome (OLR).
+    severity: blocking
+    automatable: true
+    inputs: [learningOutcomes, olr]

@@ -8,6 +8,8 @@
     "MD033": false,
     // Duplicate headings are fine across different sections (e.g. per-stage "Inputs").
     "MD024": { "siblings_only": true },
+    // Don't treat the YAML front-matter `title:` as the document H1 (assets have both).
+    "MD025": { "front_matter_title": "" },
     // Allow the first line to be something other than a top-level heading (front matter).
     "MD041": false
   },

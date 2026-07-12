@@ -1,0 +1,20 @@
+# Machine-checkable subset of the OER evaluation rules, consumed by quality-gate check QG-05.
+# Keep consistent with the prose in oer-evaluation.md.
+# PLACEHOLDER values — replace with the target institution's real OER parameters.
+status: placeholder
+
+# Evaluation forms the OER permits. QG-05 fails a session using any form not in this set.
+permitted_forms:
+  - written-exam
+  - oral-exam
+  - permanent-evaluation
+  - assignment
+  - project
+  - portfolio
+  - practical
+
+# Component weights across an OPO must sum to exactly this (percent).
+weight_must_sum_to: 100
+
+# No single component may exceed this weight (percent). null = no cap.
+max_component_weight: 100
