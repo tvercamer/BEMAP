@@ -607,15 +607,20 @@ The authoritative source is Odisee's **OER** (onderwijs- en examenreglement) plu
 campus-specific bijlage. These are fetched and snapshotted into the KB (see below); the
 machine-checkable subset lives in [`oer-evaluation.yaml`](./oer-evaluation.yaml).
 
-## Sources (to be snapshotted by the OER sync — chunk B)
+## Sources (snapshotted by `npm run sync:oer`)
 
-- **General OER (2026–2027):** <https://www.odisee.be/media/34279>
-  (currently redirects to the dated PDF; the media URL is the stable entry point).
-- **Campus Brussel bijlage (2026–2027):** <https://www.odisee.be/media/34285>
+Configured in [`oer-sources.yaml`](./oer-sources.yaml); snapshots land in
+[`oer-snapshots/`](./oer-snapshots/) with provenance (source URL, resolved PDF, fetched-at,
+page count, SHA-256):
 
-> The dated PDF URLs change; always resolve through the `media/<id>` links above. Until the
-> OER sync lands, treat the PDFs as the source of truth for weighting, resit, tolerances, and
-> thresholds — this file only summarises the evaluation-form list.
+- **General OER (2026–2027):** <https://www.odisee.be/media/34279> →
+  `oer-snapshots/general.md`
+- **Campus Brussel bijlage (2026–2027):** <https://www.odisee.be/media/34285> →
+  `oer-snapshots/campus-brussel.md`
+
+> The dated PDF URLs change; always resolve through the `media/<id>` links above. The
+> snapshots are raw-extracted PDF text (the source of truth for weighting, resit, tolerances,
+> and thresholds); this file summarises the evaluation-form list for quick reference.
 
 ## Permitted evaluation forms (fiche "Vorm")
 
